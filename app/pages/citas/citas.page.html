@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-buttons slot="start">
+    <ion-back-button 
+        defaultHref="/"
+        text="Back"
+        color="primary"
+        mode="ios">
+      </ion-back-button>
+  </ion-buttons>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="secondary">Listado de Citas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-title>Ingrese datos</ion-title>
+  <ion-item>
+    <ion-label position="fixed">Descripcion Cita</ion-label>
+    <ion-input type="text" [(ngModel)]="newForm.mensaje"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="fixed">Fecha</ion-label>
+    <ion-input type="date" [(ngModel)]="newForm.fecha"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="fixed">Hora</ion-label>
+    <ion-input type="text" [(ngModel)]="newForm.hora"></ion-input>
+  </ion-item>
+  
+
+  <ion-button (click)="addDatos()" expand="full">
+    Agendar una Cita
+  </ion-button>
+
+  <ion-list #myList>
+    <ion-list-header>
+      <ion-label>Mis Citas</ion-label>
+    </ion-list-header>
+
+    <ion-list>
+      <ion-item-sliding *ngFor="let form of form">
+        <ion-item>
+          <ion-label text-wrap> 
+            <h3>{{form.mensaje}}</h3>
+            <ion-text color="secondary">
+              <p>{{form.fecha}}</p>
+              <p>{{form.hora}}</p>
+            </ion-text>
+            <p>{{form.modified | date: 'short'}}</p>
+          </ion-label>
+        </ion-item>
+          <ion-button side=end color="danger" (click)="deleteDatos(form)">Eliminar</ion-button>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-list>
+</ion-content>

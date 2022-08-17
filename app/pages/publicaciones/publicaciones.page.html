@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title>Publicar ayudantía</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  (ngSubmit)="submitForm()">
+
+  <ion-list>  
+    <ion-item>
+      <ion-label>Quiero:</ion-label>
+      <ion-select placeholder="Select One" [(ngModel)]="newDato.quiero" name="quiero"  required >
+        <ion-select-option value="Ofrecimiento de ayudantía">Ofrecer ayudantía</ion-select-option>
+        <ion-select-option value="Solicitud de ayudantía">Solicitar ayudantía</ion-select-option>
+
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-list>  
+    <ion-item>
+      <ion-label>Categoría de estudio del tema a publicar</ion-label>
+      <ion-select placeholder="Select One" [(ngModel)]="newDato.categoria" name="categoria"  required >
+        <ion-select-option value="Administración y Negocios">Administración y Negocios</ion-select-option>
+        <ion-select-option value="Comunicación">Comunicación</ion-select-option>
+        <ion-select-option value="Construcción">Construcción</ion-select-option>
+        <ion-select-option value="Diseño">Diseño</ion-select-option>
+        <ion-select-option value="Gastronomía">Gastronomía</ion-select-option>
+        <ion-select-option value="Informatica y Telecomunicaciones">Informatica y Telecomunicaciones</ion-select-option>
+        <ion-select-option value="Ingeniería y Recursos Naturales">Ingeniería y Recursos Naturales</ion-select-option>
+        <ion-select-option value="Salud">Salud</ion-select-option>
+        <ion-select-option value="Turismo y Hotelería">Turismo y Hotelería</ion-select-option>
+        <ion-select-option value="Otro">Otro</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label>Descripción</ion-label>
+    <ion-textarea rows="6" cols="20" placeholder="Ingrese la descripción de la ayudantía que ofrece"         [(ngModel)]="newDato.descripcion"
+    name="descripcion"
+    required></ion-textarea>
+  </ion-item>
+
+  <ion-button (click)="addDatos()"  expand="block" [routerLink]="['/inicio']">
+    Publicar
+  </ion-button>
+  <ion-button (click)="onClick()" expand="block" fill="clear" shape="round" [routerLink]="['/inicio']">
+    Cancelar
+  </ion-button>
+</ion-content>

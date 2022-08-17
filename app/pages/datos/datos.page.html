@@ -1,0 +1,223 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="Back" color="primary" mode="ios">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title> Datos </ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+<!-- <ion-content  (ngSubmit)="submitForm()"> 
+  <ion-card-content  class="textCenter bg" >
+
+    <ion-card>
+      <ion-label position="fixed"></ion-label>
+      <ion-input placeholder="Rut" type="text"  [(ngModel)]="newDato.rut" name="rut"  required></ion-input>
+    </ion-card>
+  
+
+    <ion-card>
+      <ion-label position="fixed"></ion-label>
+      <ion-input placeholder="Nombre"  type="text" FormControlName="nombre"  [(ngModel)]="newDato.nombre" name="nombre" required></ion-input>
+    </ion-card>
+
+    
+
+    <ion-card>
+      <ion-label position="fixed"></ion-label>
+      <ion-input
+        placeholder="Apellido"
+        type="text"
+        [(ngModel)]="newDato.apellido"
+        name="apellido"
+        required
+      ></ion-input>
+    </ion-card>
+
+    <ion-card>
+      <ion-label position="fixed"></ion-label>
+      <ion-input
+        placeholder="Direccion"
+        type="text"
+        [(ngModel)]="newDato.direccion"
+        name="direccion"
+        required
+      ></ion-input>
+    </ion-card>
+
+    <ion-card>
+      <ion-label position="fixed"> </ion-label>
+      <ion-input placeholder="Email" type="text" pattern="/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i" FormControlName="email" [(ngModel)]="newDato.email" name="email" required></ion-input>
+    </ion-card>
+  
+
+    <ion-card>
+      <ion-label position="fixed"> </ion-label>
+      <ion-input
+        placeholder="Password"
+        type="password"
+        [(ngModel)]="newDato.password"
+        name="password"
+        required
+      ></ion-input>
+    </ion-card>
+
+    <ion-card>
+      <ion-label position="fixed"></ion-label>
+      <ion-input
+        placeholder="Tel. (+56 9)"
+        type="number"
+        [(ngModel)]="newDato.telefono "
+        name="telefono"
+        required
+      ></ion-input>
+    </ion-card>
+
+    <ion-card>
+      <ion-label position="fixed"> </ion-label>
+      <ion-input placeholder="Edad" type="number" [(ngModel)]="newDato.edad " name="edad" required></ion-input>
+    </ion-card>
+
+    <ion-button (click)="addDatos()"   expand="block" [routerLink]="['/login']">
+      Agregar datos
+    </ion-button>
+  
+  </ion-card-content> 
+
+</ion-content>-->
+
+<form [formGroup]="regForm" (ngSubmit)="submitForm()" class="textCenter bg" novalidate>
+  <ion-card>
+    <ion-label position="fixed"></ion-label>
+    <ion-input 
+    placeholder="Rut" 
+    type="text" 
+    formControlName="rut" 
+    [(ngModel)]="newDato.rut" 
+    name="rut"  
+    required>
+  </ion-input>
+  </ion-card>
+  <div *ngFor="let error of errorMessage.rut">
+    <ng-container *ngIf="rut.hasError(error.type) && (rut.dirty || rut.touched)">
+      <small class="error-message" >{{error.message}}</small>
+    </ng-container>
+  </div>
+  
+  <ion-card>
+    <ion-label position="fixed"></ion-label>
+    <ion-input 
+    placeholder="Nombre"  
+    type="text" 
+    formControlName="nombre"  
+    [(ngModel)]="newDato.nombre" 
+    name="nombre" required></ion-input>
+  </ion-card>
+  <div *ngFor="let error of errorMessage.nombre">
+    <ng-container *ngIf="nombre.hasError(error.type) && (nombre.dirty || nombre.touched)">
+      <small class="error-message" >{{error.message}}</small>
+    </ng-container>
+  </div>
+  <ion-card>
+    <ion-label position="fixed"></ion-label>
+    <ion-input
+      placeholder="Apellido"
+      type="text"
+      formControlName="apellido"
+      [(ngModel)]="newDato.apellido"
+      name="apellido"
+      required
+    ></ion-input>
+  </ion-card>
+  <div *ngFor="let error of errorMessage.apellido">
+    <ng-container *ngIf="apellido.hasError(error.type) && (apellido.dirty || apellido.touched)">
+      <small class="error-message" >{{error.message}}</small>
+    </ng-container>
+  </div>
+  <ion-card>
+    <ion-label position="fixed"></ion-label>
+    <ion-input
+      placeholder="Direccion"
+      type="text"
+      formControlName="direccion" 
+      [(ngModel)]="newDato.direccion"
+      name="direccion"
+      required
+    ></ion-input>
+  </ion-card>
+  <div *ngFor="let error of errorMessage.direccion">
+    <ng-container *ngIf="direccion.hasError(error.type) && (direccion.dirty || direccion.touched)">
+      <small class="error-message" >{{error.message}}</small>
+    </ng-container>
+  </div>
+  
+  <ion-card>
+    <ion-label position="fixed"> </ion-label>
+    <ion-input placeholder="Email" 
+    type="text" 
+    formControlName="email" 
+    [(ngModel)]="newDato.email" 
+    name="email" 
+    required>
+  </ion-input>
+  </ion-card>
+  <div *ngFor="let error of errorMessage.email">
+    <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+      <small class="error-message" >{{error.message}}</small>
+    </ng-container>
+  </div>
+  <ion-card>
+    <ion-label position="fixed"> </ion-label>
+    <ion-input
+      placeholder="Password"
+      type="password"
+      formControlName="password"
+      [(ngModel)]="newDato.password"
+      name="password"
+      required
+    ></ion-input>
+  </ion-card>
+  <div *ngFor="let error of errorMessage.password">
+    <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+      <small class="error-message" >{{error.message}}</small>
+    </ng-container>
+  </div>
+  <ion-card>
+    <ion-label position="fixed"></ion-label>
+    <ion-input
+      placeholder="Tel. (+56 9)"
+      type="number"
+      formControlName="telefono"
+      [(ngModel)]="newDato.telefono "
+      name="telefono"
+      required
+    ></ion-input>
+  </ion-card>
+  <div *ngFor="let error of errorMessage.telefono">
+    <ng-container *ngIf="telefono.hasError(error.type) && (telefono.dirty || telefono.touched)">
+      <small class="error-message" >{{error.message}}</small>
+    </ng-container>
+  </div>
+    <ion-card>
+      <ion-label position="fixed"> </ion-label>
+      <ion-input 
+      placeholder="Edad" 
+      type="number" 
+      formControlName="edad"
+      [(ngModel)]="newDato.edad " 
+      name="edad" 
+      required>
+    </ion-input>
+    </ion-card>
+    <div *ngFor="let error of errorMessage.edad">
+      <ng-container *ngIf="edad.hasError(error.type) && (edad.dirty || edad.touched)">
+        <small class="error-message" >{{error.message}}</small>
+      </ng-container>
+    </div>
+  
+
+  <ion-button (click)="addDatos()"  [disabled]="!regForm.valid" expand="block" [routerLink]="['/login']">
+    Agregar datos
+  </ion-button>
+</form>

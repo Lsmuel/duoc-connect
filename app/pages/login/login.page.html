@@ -1,0 +1,32 @@
+<ion-header  >
+  <ion-toolbar  >
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-card-content class=" textCenter ">
+  <form  #formulario="ngForm"  class="form-signin" >
+    <ion-card-content>
+      <ion-img src="/assets/img/duroc2.jpg"></ion-img>
+    </ion-card-content>
+    <ion-title class="letra">Duoc Connect</ion-title>
+    <br>
+    <br>
+    <ion-card >
+      <ion-label position="floating"></ion-label>
+      <ion-input name="Email" placeholder="Email" [(ngModel)]="user.email" type="text" required></ion-input>
+    </ion-card>
+
+    <ion-card >
+      <ion-label  position="floating"></ion-label>
+      <ion-input name="password" placeholder="Password" [(ngModel)]="user.password" type="password" required></ion-input>
+    </ion-card>
+
+    <ion-button class="ion-margin-top btnLogin color " type="submit" expand="block"  (click)="signIn()"   [disabled]="formulario.invalid">
+      Iniciar sesion
+    </ion-button>
+    <ion-button   expand="block"  [routerLink]="['/datos']" >Crear Cuenta</ion-button>
+  </form>
+    
+</ion-card-content>
+</ion-content>

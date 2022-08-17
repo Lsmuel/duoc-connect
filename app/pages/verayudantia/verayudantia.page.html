@@ -1,0 +1,76 @@
+<ion-header class="navbar">
+  <ion-toolbar class="navbar2">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-avatar>
+        <img src="/assets/img/duroc2.jpg">
+      </ion-avatar>
+    </ion-buttons>
+    <ion-title class="textCenter" color="primary">Publicaciones</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list #myList>
+    <ion-list-header>
+      <ion-label><h1>Ayudantías disponibles</h1></ion-label>
+    </ion-list-header>
+
+    <ion-card>
+      <ion-list #myList>
+
+      <ion-list>
+        <ion-item-sliding *ngFor="let dato of datos">
+          <ion-item>
+            <ion-label text-wrap> 
+              <h3 style="font-weight: bold;">{{dato.quiero}}</h3>
+              <div></div>
+              <div></div>
+
+              <h3>Categoría: {{dato.categoria}}</h3>
+              <div></div>
+              <div></div>
+              <ion-text color="secondary">
+                <p>{{dato.descripcion}}</p>
+
+              </ion-text>
+              <p>{{dato.modified | date: 'short'}}</p>
+            </ion-label>
+            
+          </ion-item>
+          <ion-item-options side="end">
+            <!--
+            <ion-item-option color="secondary" (click)="updateDatos(dato)">Actualizar</ion-item-option>
+            -->
+            <ion-item-option class="boton1" (click)="updateDatos(dato)">Actualizar</ion-item-option>
+
+           <ion-item-option class="boton2" (click)="deleteDatos(dato)">Eliminar</ion-item-option> 
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+      </ion-list>
+    </ion-card>
+  </ion-list>
+
+
+
+</ion-content>
+
+
+
+
+<br/>  
+<ion-list>
+  <ion-item *ngFor="let c of componentes" [routerLink]="c.redirecTo" detail="true">
+    <ion-icon [name]="c.icon" slot="start" color="primary"></ion-icon>
+    {{c.name}}
+  </ion-item>
+</ion-list>

@@ -1,0 +1,81 @@
+<ion-header class="navbar">
+  <ion-toolbar class="navbar2">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-button  slot="secondary" (click)="logout()" expand="block" fill="clear" shape="round" slot="end">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-button>
+
+    <ion-buttons slot="end">
+    </ion-buttons>
+    <ion-title class="textCenter" color="primary">Publicaciones</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreem]="true">
+  
+ <ion-card-content>
+  <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
+  <ion-card>
+    <ion-avatar>  
+      <img src="https://i.pravatar.cc/300">
+    </ion-avatar>
+    <ion-card-title class="textCenter">  Alumno:Juan Perez   <p></p> 
+      Carrera:Ingeneria informatica</ion-card-title>
+    <ion-img  src="/assets/img/html.jpg"></ion-img>
+    <ion-card-header>
+    </ion-card-header>
+    <ion-card-content class="textCenter">
+      Ofrezco ayudantias en cualquiera de los ramos referentes netamente al tema de programacion
+      Dias miercoles y jueves despues de las 3 de la tarde, mas imformacion por mensaje
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-card-content>
+
+ 
+<ion-card-content>
+  <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
+  <ion-card>
+    <ion-avatar>
+      <img src="https://i.pravatar.cc/301">
+    </ion-avatar>
+    <ion-card-title class="textCenter">  Alumno:Felipe Tobar <p></p> 
+      Carrera:Ingeneria en construccion</ion-card-title>
+    <ion-img  src="/assets/img/cons.jpg"></ion-img>
+    <ion-card-header>
+    </ion-card-header>
+    <ion-card-content class="textCenter">
+      Ayudantias todos los dias despues de las 7 de la tarde
+      de los siguentes ramos: Albañilera,Calculo y trigonometria
+      recibe mensajes en cualquier momento!
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-card-content>
+
+ 
+
+
+
+</ion-content>
+
+<ion-fab-button>
+  <ion-icon name="chatbox-ellipses-outline" routerLink="/chatt"></ion-icon>
+</ion-fab-button>
+
+
+<br/>  
+<ion-list>
+  <ion-item *ngFor="let c of componentes" [routerLink]="c.redirecTo" detail="true">
+    <ion-icon [name]="c.icon" slot="start" color="primary"></ion-icon>
+    {{c.name}}
+  </ion-item>
+</ion-list>

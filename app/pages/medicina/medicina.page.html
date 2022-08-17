@@ -1,0 +1,54 @@
+<ion-header class="ion-no-border" >
+  <ion-toolbar color="light">
+    <ion-title>Novedades</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button 
+          defaultHref="/"
+          text="Back"
+          color="primary"
+          mode="ios">
+        </ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" routerLink="/inicio">
+      <ion-avatar>
+         <ion-img  src="/assets/img/symtosympn.png"></ion-img>
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content color="primary">
+
+  <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12"
+              *ngFor = "let medicina of medicina; let i = index"  >
+          <ion-card class="" color="light" >
+            <ion-card-header>
+              <ion-card-subtitle>
+                <span class ="text">{{i+1}}</span>
+                <span class="medicina-name">{{medicina.source.name}}</span>
+              </ion-card-subtitle>
+              <ion-card-title>{{medicina.title}}</ion-card-title>
+            </ion-card-header>
+
+            <ion-img
+              *ngIf="medicina.urlToImage"
+              [src]="medicina.urlToImage">
+            </ion-img>
+
+            <ion-card-content>
+              <p class="medicina-description">{{medicina.description}}</p>
+              
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+
+
+</ion-content>
